@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hou's Burger</title>
+  <link rel="icon" href="images/burger.png">
+  <link rel="stylesheet" href="design/styleG.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Titan+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <main id="main">
+   <nav>
+      <div class="logo">
+        <span class="logo-icon">
+          <i class="fa-solid fa-utensils"></i> 
+        </span>
+         <span class="logo-text">
+          Hou's Burger
+        </span>
+      </div>
+      
+      <div class="menu">
+        <div><a href="index.html" >Home</a></div>
+        <div><a href="Projet.html" >Your Own</a></div>
+        <div><a href="game.html" class="active">Game</a></div>
+        <div><a href="">About Us</a></div>
+        
+      </div>
+
+      <div class="right-nav">
+        <div class="cart boxes">
+          <i class="fa-solid fa-basket-shopping fa-xl" ></i>
+          <div class="items" id="cart-items"></div>
+        </div>
+        <div class="profil boxes">
+          <img src="images/profil_picture.png" class="profil_picture">
+          <div > M.Houssame</div>
+        </div>
+          <div class="humberger-menu ">
+            <div class="boxes" onclick="ouvreMenu()" >
+              <i class="fa-solid fa-bars fa-lg " ></i>
+            </div>
+            
+            <div class="submenu" id="submenu" >
+              <div><a href="index.html" >Home</a></div>
+              <div><a href="Projet.html">Your Own</a></div>
+              <div><a href="game.html" class="active">Game</a></div>
+              <div><a href="">About Us</a></div>
+            </div>
+          </div>
+    </nav>
+    <section class="game-acceuil" id="game-acceuil">
+      <div class="start" id="start">
+        <div class="start-text">
+            <h1>Burger Brain</h1>
+            <p>Memorize the order, stack the ingredients, and become the Master Chef!</p>
+            <div class="rules">
+                <span>⏱️ 10 seconds to memorize</span><br>
+                <span>🍔 Stack perfectly</span>
+            </div>
+        </div>
+
+        <div class="start-image">
+            <img src="images/Game/b_neon.png" alt="Big Burger">
+        </div>
+
+        <div class="start-buttons">
+            <button class="btn-menu" onclick="startGame()">Start Game</button>
+            <button class="btn-menu btn-continue" onclick="continueGame()">Continue</button>
+        </div>
+
+      </div>
+      <section class="creation-burger" id= "creation-burger" style="display: none;">
+        <div class="ingredients-grid" id="ingredients">
+          <div class="container" id="meat" onclick="addContainer('meat')">
+            <img src="images/ingredients/meat.png" alt="meat">
+            <div class="ing-title">meat</div>
+          </div>
+          <div class="container" id="tomato" onclick="addContainer('tomato')">
+            <img src="images/ingredients/tomato.png" alt="tomato" >
+            <div class="ing-title">tomato</div>
+          </div>
+          <div class="container" id="onion" onclick="addContainer('onion')">
+            <img src="images/ingredients/onion.png" alt="onion">
+            <div class="ing-title">onion</div>
+          </div>
+          <div class="container" id="cheese" onclick="addContainer('cheese')">
+            <img src="images/ingredients/cheese-block.png" alt="cheese">
+            <div class="ing-title">cheese</div>
+          </div>
+          <div class="container" id="pickles" onclick="addContainer('pickles')">
+            <img src="images/ingredients/pickles.png" alt="pickles">
+            <div class="ing-title">pickles</div>
+          </div>
+          <div class="container" id="lettuce" onclick="addContainer('lettuce')">
+            <img src="images/ingredients/lettuce.png" alt="lettuce">
+            <div class="ing-title">lettuce</div>
+          </div>
+          <div class="container" id="ketchup" onclick="addContainer('ketchup')">
+            <img src="images/ingredients/ketchup.png" alt="ketchup">
+            <div class="ing-title">ketchup</div>
+          </div>
+          <div class="container" id="mayonnaise" onclick="addContainer('mayonnaise')">
+            <img src="images/ingredients/mayonnaise.png" alt="mayonnaise">
+            <div class="ing-title">mayonnaise</div>
+          </div>
+          <div class="container" id="mustard" onclick="addContainer('mustard')">
+            <img src="images/ingredients/mustard.png" alt="mustard">
+            <div class="ing-title">mustard</div>
+          </div>
+          
+          <div class="buttons">
+            <button class="btn btn-End" id="end-btn" onclick="End()">End</button>
+            <button class="btn btn-submit" id="submit-btn" onclick="check()">Check</button>
+            <button class="btn btn-reset" onclick="NextRound()">Restart &#x21BB;</button>
+          </div> 
+        </div>
+
+        <div class="target-burger" id="target-burger">
+          <h2>Remember this , you have 10s ⏱️ </h2>
+          <img id="target-image" src="" alt="Target Burger" width="500px">
+        </div>
+
+        <div class="burger-preview" id="burger-preview">
+            <div id="burger">
+              <div class="bun-bottom"></div>
+            </div> 
+        </div>
+      </section>
+    </section>
+  </main>
+
+    <section class="popup_notif" id="popup">
+      <div class="popup-content popup-hide" id="won" >
+        <h2>You Won</h2>
+        <p>Congratulations! You have a nice memorie</p>
+        <div class="score"></div>
+          
+        <img src="images/Game/won.gif" alt="won" width="300px">
+        <p>Enjoy your game</p>
+        <div class="buttons">
+          <button class="btn btn-End" onclick="NextRound()">Play Again</button>
+          <button class="btn btn-reset" onclick="ToHome()">Quit</button>
+        </div>
+      </div>
+
+      <div class="popup-content popup-hide" id="lost" >
+        <h2>You Lost</h2>
+        <p>Oops! Better luck next time.</p>
+        <div class="score" ></div>
+        <img src="images/Game/lost.gif" alt="lost" width="300px">
+        <p>Enjoy your game</p>
+        <div class="buttons">
+          <button class="btn btn-End" onclick="NextRound()">Try Again</button>
+          <button class="btn btn-reset" onclick="ToHome()">Quit</button>
+        </div>
+      </div>
+    </section>
+
+  
+  
+  <footer>
+    <div class="footer-content">
+      
+      <div class="footer-col">
+        <div class="logo">Hou's Burger</div>
+        <p>Les meilleurs burgers de la ville, préparés avec passion et des ingrédients frais.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Projet.html">Create Your Own</a></li>
+          <li><a href="game.html">Play Game</a></li>
+          <li><a href="#">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <p>📍 123 Rue du Burger, Rabat</p>
+        <p>📞 +212 6 00 00 00 00</p>
+        <div class="social-media">
+          <a href="#"><i class="fa-brands fa-github"></i></a> 
+          <a href="#"><i class="fa-regular fa-envelope"></i></a> 
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Hou's Burger. Made with 🧡 by Houssame.</p>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/086b2bf1b6.js" crossorigin="anonymous"></script> 
+  <script src="script/Game.js"></script>
+  <script src="script/index.js"></script>
+
+</body>
+</html>

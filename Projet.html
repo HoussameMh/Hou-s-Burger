@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hou's Burger</title>
+  <link rel="icon" href="images/burger.png">
+  <link rel="stylesheet" href="design/styleP.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Titan+One&display=swap" rel="stylesheet">
+</head>
+
+<body >
+  <main id="main" >
+    <nav>
+      <div class="logo">
+        <span class="logo-icon">
+          <i class="fa-solid fa-utensils"></i> 
+        </span>
+         <span class="logo-text">
+          Hou's Burger
+        </span>
+      </div>
+      
+      <div class="menu">
+        <div><a href="index.html" >Home</a></div>
+        <div><a href="Projet.html" class="active">Your Own</a></div>
+        <div><a href="game.html">Game</a></div>
+        <div><a href="">About Us</a></div>
+        
+      </div>
+
+      <div class="right-nav">
+        <div class="cart boxes">
+          <i class="fa-solid fa-basket-shopping fa-xl" ></i>
+          <div class="items" id="cart-items"></div>
+        </div>
+        <div class="profil boxes">
+          <img src="images/profil_picture.png" class="profil_picture">
+          <div > M.Houssame</div>
+        </div>
+          <div class="humberger-menu ">
+            <div class="boxes" onclick="ouvreMenu()" >
+              <i class="fa-solid fa-bars fa-lg " ></i>
+            </div>
+            
+            <div class="submenu" id="submenu" >
+              <div><a href="index.html" >Home</a></div>
+              <div><a href="Projet.html" class="active">Your Own</a></div>
+              <div><a href="game.html">Game</a></div>
+              <div><a href="">About Us</a></div>
+            </div>
+          </div>
+    </nav>
+    <h3 class="container">Choose carefully your ingredients 😋</h3>
+    <section class="creation-burger">
+      <div class="ingredients-grid">  
+        <div class="container" id="meat" >
+          <img src="images/ingredients/meat.png" alt="meat">
+          <div class="ing-details">
+            <div class="remove-ing" onclick="removeContainer('meat')"><i class="fa-solid fa-minus fa-xl" style="color: #ffffff;"></i></div>
+            <div class="ing-title">meat</div>
+            <div class="add-ing" onclick="addContainer('meat')"><i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i></div>
+          </div>
+          
+        </div>
+        <div class="container" id="tomato">
+          <img src="images/ingredients/tomato.png" alt="tomato" >
+          <div class="ing-details">
+            <div class="remove-ing" onclick="removeContainer('tomato')"><i class="fa-solid fa-minus fa-xl" style="color: #ffffff;"></i></div>
+            <div class="ing-title">tomato</div>
+            <div class="add-ing" onclick="addContainer('tomato')"><i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i></div>
+          </div>
+        </div>
+        <div class="container" id="onion" onclick="addContainer('onion')">
+          <img src="images/ingredients/onion.png" alt="onion">
+          <div class="ing-details">
+            <div class="remove-ing" onclick="removeContainer('onion')"><i class="fa-solid fa-minus fa-xl" style="color: #ffffff;"></i></div>
+            <div class="ing-title">onion</div>
+            <div class="add-ing" onclick="addContainer('onion')"><i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i></div>
+          </div>
+        </div>
+        <div class="container" id="cheese" >
+          <img src="images/ingredients/cheese-block.png" alt="cheese">
+          <div class="ing-details">
+            <div class="remove-ing" onclick="removeContainer('cheese')"><i class="fa-solid fa-minus fa-xl" style="color: #ffffff;"></i></div>
+            <div class="ing-title">cheese</div>
+            <div class="add-ing" onclick="addContainer('cheese')"><i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i></div>
+          </div>
+        </div>
+        <div class="container" id="pickles" >
+          <img src="images/ingredients/pickles.png" alt="pickles">
+          <div class="ing-details">
+            <div class="remove-ing" onclick="removeContainer('pickles')"><i class="fa-solid fa-minus fa-xl" style="color: #ffffff;"></i></div>
+            <div class="ing-title">pickles</div>
+            <div class="add-ing" onclick="addContainer('pickles')"><i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i></div>
+          </div>
+        </div>
+        <div class="container" id="lettuce" >
+          <img src="images/ingredients/lettuce.png" alt="lettuce">
+          <div class="ing-details">
+            <div class="remove-ing" onclick="removeContainer('lettuce')"><i class="fa-solid fa-minus fa-xl" style="color: #ffffff;"></i></div>
+            <div class="ing-title">lettuce</div>
+            <div class="add-ing" onclick="addContainer('lettuce')"><i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i></div>
+          </div>
+        </div>
+        <div class="container" id="ketchup" >
+          <img src="images/ingredients/ketchup.png" alt="ketchup">
+          <div class="ing-details">
+            <div class="remove-ing" onclick="removeContainer('ketchup')"><i class="fa-solid fa-minus fa-xl" style="color: #ffffff;"></i></div>
+            <div class="ing-title">ketchup</div>
+            <div class="add-ing" onclick="addContainer('ketchup')"><i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i></div>
+          </div>
+        </div>
+        <div class="container" id="mayonnaise" onclick="addContainer('mayonnaise')">
+          <img src="images/ingredients/mayonnaise.png" alt="mayonnaise">
+          <div class="ing-details">
+            <div class="remove-ing" onclick="removeContainer('mayonnaise')"><i class="fa-solid fa-minus fa-xl" style="color: #ffffff;"></i></div>
+            <div class="ing-title">mayonnaise</div>
+            <div class="add-ing" onclick="addContainer('mayonnaise')"><i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i></div>
+          </div>
+        </div>
+        <div class="container" id="mustard" onclick="addContainer('mustard')">
+          <img src="images/ingredients/mustard.png" alt="mustard">
+          <div class="ing-details">
+            <div class="remove-ing" onclick="removeContainer('mustard')"><i class="fa-solid fa-minus fa-xl" style="color: #ffffff;"></i></div>
+            <div class="ing-title">mustard</div>
+            <div class="add-ing" onclick="addContainer('mustard')"><i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i></div>
+          </div>
+        </div>
+        <div class="buttons">
+          <button class="btn btn-End" id="end-btn" onclick="End()">End</button>
+          <button class="btn btn-submit" id="submit-btn" onclick="Submit()">Submit</button>
+          <button class="btn btn-reset" onclick="reloadPage()">Reset Burger</button>
+        </div> 
+      </div>
+
+      <div class="burger-preview">
+          <div id="burger">
+            <div class="bun-bottom"></div>
+          </div> 
+      </div>
+    </section>
+  </main>
+
+   <section class="popup_notif" id="popup">
+      <div class="popup-content popup-hide" id="normal-burger" >
+        <h2>Your burger is ready! 🍔😋</h2>
+        <p>Congratulations! You've built a delicious burger!</p>
+        <img src="images/popup/normalburger.gif" alt="normal-sized burger" width="300px">
+        <p>Enjoy your meal!</p>
+        <div class="buttons">
+          <button class="btn btn-End" onclick="toGamePage()">Play a Game</button>
+          <button class="btn btn-reset" onclick="reloadPage()">Reset Burger</button>
+        </div>
+      </div>
+
+      <div class="popup-content popup-hide" id="big-burger">
+        <h2>Your burger is big! 🍔😮</h2>
+        <p>Great job! You've created a substantial burger!</p>
+        <img src="images/popup/bigburgr.gif" alt="big-sized burger" width="300px">
+        <p>Get ready for a satisfying meal!</p>
+        <div class="buttons">
+          <button class="btn btn-End" onclick="toGamePage()">Play a Game</button>
+          <button class="btn btn-reset" onclick="reloadPage()">Reset Burger</button>
+        </div>
+      </div>
+
+      <div class="popup-content popup-hide" id="over-burger" >
+        <h2> Your burger is over-sized!😲</h2>
+        
+        <img src="images/popup/overburger.gif" alt="over-sized burger" width="300px">
+        <p>Build another one</p>
+        <button class="btn btn-End" onclick="reloadPage()">Reset Burger</button>
+      </div>
+    </section>
+
+  <footer>
+    <div class="footer-content">
+      
+      <div class="footer-col">
+        <div class="logo">Hou's Burger</div>
+        <p>Les meilleurs burgers de la ville, préparés avec passion et des ingrédients frais.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Projet.html">Create Your Own</a></li>
+          <li><a href="game.html">Play Game</a></li>
+          <li><a href="#">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <p>📍 123 Rue du Burger, Rabat</p>
+        <p>📞 +212 6 00 00 00 00</p>
+        <div class="social-media">
+          <a href="#"><i class="fa-brands fa-github"></i></a> 
+          <a href="#"><i class="fa-regular fa-envelope"></i></a> 
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Hou's Burger. Made with 🧡 by Houssame.</p>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/086b2bf1b6.js" crossorigin="anonymous"></script> 
+  <script src="script/Projet.js"></script>
+  <script src="script/index.js"></script>
+
+</body>
+</html>

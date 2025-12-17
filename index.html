@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Hou's Burger</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/burger.png">
+  <link rel="stylesheet" href="design/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Titan+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <main>
+    <nav>
+      <div class="logo">
+        <span class="logo-icon">
+          <i class="fa-solid fa-utensils"></i> 
+        </span>
+         <span class="logo-text">
+          Hou's Burger
+        </span>
+      </div>
+      
+      <div class="menu">
+        <div><a href="index.html" class="active">Home</a></div>
+        <div><a href="Projet.html">Your Own</a></div>
+        <div><a href="game.html">Game</a></div>
+        <div><a href="">About Us</a></div>
+        
+      </div>
+
+      <div class="right-nav">
+        <div class="cart boxes">
+          <i class="fa-solid fa-basket-shopping fa-xl" ></i>
+          <div class="items" id="cart-items"></div>
+        </div>
+        <div class="profil boxes">
+          <img src="images/profil_picture.png" class="profil_picture">
+          <div > M.Houssame</div>
+        </div>
+          <div class="humberger-menu ">
+            <div class="boxes" onclick="ouvreMenu()" >
+              <i class="fa-solid fa-bars fa-lg " ></i>
+            </div>
+            
+            <div class="submenu" id="submenu" >
+              <div><a href="index.html" class="active">Home</a></div>
+              <div><a href="Projet.html">Your Own</a></div>
+              <div><a href="game.html">Game</a></div>
+              <div><a href="">About Us</a></div>
+            </div>
+          </div>
+        
+        
+     
+    </nav>
+
+    <section class="Home">
+      <div class="left-text">
+        <span class="slogan">THE ORIGINAL BURGER</span>
+        <h1>SAVORY & <br> DELICIOUS</h1>
+        <p>Des burgers délicieux faits à partir de bœuf de haute qualité, soigneusement préparés pour créer un goût juteux et savoureux.</p>
+
+        <div class="buttons">
+          <a href="Projet.html" class="btn btn-primary">Create your own</a>
+          <a href="game.html" class="btn btn-outline">Play a Game &rarr;</a>
+        </div>
+      </div>
+      
+      <div class="right-image" >
+        <img src="images/burger1.png" >
+      </div>
+      
+      
+    </section>
+    <section class="menu-burger">
+      <div class="burgerCard">
+        <div class="image-menu">
+          <img src="images/menu/b1.png">
+        </div>
+        <div class="description" >
+          <div class="ajouterPanier">
+            <div class="mbox remove" onclick="removeCart()">-</div>
+            <div class="mbox add" id="add" onclick="addToCart()">+</div>
+            <div class="pbox panier"><i class="fa-solid fa-cart-shopping" ></i></div>
+          </div>
+          <div class="burgerName">Cheese Burger</div>
+          <div class="rating-price">
+            <span>⭐ 4.9</span>
+            <span class="price">$5.66</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="burgerCard">
+        <div class="image-menu">
+          <img src="images/menu/b2.png">
+        </div>
+        <div class="description" >
+          <div class="ajouterPanier">
+            <div class="mbox remove" onclick="removeCart()">-</div>
+            <div class="mbox add" id="add" onclick="addToCart()">+</div>
+            <div class="pbox panier"><i class="fa-solid fa-cart-shopping" ></i></div>
+          </div>
+          <div class="burgerName">Chicken Burger</div>
+          <div class="rating-price">
+            <span>⭐ 4.4</span>
+            <span class="price">$8.55</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="burgerCard resp-card">
+        <div class="image-menu">
+          <img src="images/menu/b3.png">
+        </div>
+        <div class="description" >
+          <div class="ajouterPanier">
+            <div class="mbox remove" onclick="removeCart()">-</div>
+            <div class="mbox add" id="add" onclick="addToCart()">+</div>
+            <div class="pbox panier"><i class="fa-solid fa-cart-shopping" ></i></div>
+          </div>
+          <div class="burgerName">Big Burger</div>
+          <div class="rating-price">
+            <span>⭐ 4.7</span>
+            <span class="price">$7.20</span>
+          </div>
+        </div>
+      </div>
+
+
+
+      
+      
+      
+    </section>
+
+  </main>  
+
+  <footer>
+    <div class="footer-content">
+      
+      <div class="footer-col">
+        <div class="logo">Hou's Burger</div>
+        <p>Les meilleurs burgers de la ville, préparés avec passion et des ingrédients frais.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Projet.html">Create Your Own</a></li>
+          <li><a href="game.html">Play Game</a></li>
+          <li><a href="#">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <p>📍 123 Rue du Burger, Rabat</p>
+        <p>📞 +212 6 00 00 00 00</p>
+        <div class="social-media">
+          <a href="#"><i class="fa-brands fa-github"></i></a> 
+          <a href="#"><i class="fa-regular fa-envelope"></i></a> 
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Hou's Burger. Made with 🧡 by Houssame.</p>
+    </div>
+  </footer>
+  <script src="https://kit.fontawesome.com/086b2bf1b6.js" crossorigin="anonymous"></script> 
+  <script src="script/index.js" ></script>
+</body>
+</html>
