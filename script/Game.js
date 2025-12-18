@@ -40,6 +40,22 @@ function addContainer(ingredient) {
     burger.insertBefore(newIngredient, burger.firstElementChild);
 }
 
+function removeContainer(ingredient) {
+  
+  if (!encours){
+    return ;
+  }
+  const burger = document.getElementById('burger');
+  if(ingredient=='pickles'){
+    const picklesGroup=burger.querySelectorAll(`div.pickles-group`);
+    if(picklesGroup.length){ picklesGroup[0].remove()};
+    return;
+  }
+  const myIngredient=burger.querySelectorAll(`div.${ingredient}`)
+  
+  if(myIngredient.length){ myIngredient[0].remove()};
+}
+
 function End(){
   if (encours){
     const burger = document.getElementById('burger');
@@ -95,6 +111,8 @@ function getResult(){
 
 function startGame(){
   score=0;
+  const divCountdownBar=document.getElementById('divCountdownBar');
+  divCountdownBar.style.display='block';
   const startDiv = document.getElementById('start');
   startDiv.style.display = 'none';
   const creationBurgerSection = document.getElementById('creation-burger');
@@ -112,12 +130,14 @@ function startGame(){
 }
 
 function continueGame(){
+  const divCountdownBar=document.getElementById('divCountdownBar');
+  divCountdownBar.style.display='block'
   const startDiv = document.getElementById('start');
   startDiv.style.display = 'none';
   const creationBurgerSection = document.getElementById('creation-burger');
   creationBurgerSection.style.display = 'flex';
   const targetImage = document.getElementById('target-image');
-   const burgerPreview=document.getElementById('burger-preview');
+  const burgerPreview=document.getElementById('burger-preview');
   burgerPreview.style.display='none';
   targetImage.src = `/images/Game/${targetBurger.id}.png`;
   encours=false;
@@ -138,5 +158,43 @@ function ToHome(){
 
 function NextRound(){
   window.location.reload();
+}
+
+function initBarCount() {
+  var divTimeLeft = document.getElementById('divTimeLeft');
+  var targetWidth=divCountdownBarWidth=document.getElementById('divCountdownBar').clientWidth;
+  console.log(targetWidth);
+  
+  var delay = 10;         
+  var duration = 20;      
+
+  setTimeout(function() {
+    
+    console.log("Démarrage de la barre !");
+    startFillingBar();
+
+  }, delay * 1000); 
+
+  function startFillingBar() {
+    var intervalTime = 10; 
+    var currentWidth = 0;
+    
+    // CALCUL MATHÉMATIQUE :
+    // On doit parcourir 500px en 20 secondes.
+    // Il y a (20 * 1000) / 10 = 2000 mises à jour totales.
+    // Donc à chaque fois, on ajoute : 500 / 2000 = 0.25 pixel.
+    var step = targetWidth / ((duration * 1000) / intervalTime);
+    var timer = setInterval(function() {
+      currentWidth += step;
+      if (currentWidth >= targetWidth) {
+        divTimeLeft.style.width = targetWidth + 'px'; 
+        clearInterval(timer); 
+        console.log("Terminé !");
+      } else {
+        divTimeLeft.style.width = currentWidth + 'px';
+      }
+    }, intervalTime);
+  }
+  setTimeout(End,30*1000);
 }
 

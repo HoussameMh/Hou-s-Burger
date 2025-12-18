@@ -51,6 +51,9 @@
             </div>
           </div>
     </nav>
+    <div id="divCountdownBar"  >
+      <div id="divTimeLeft"></div>
+    </div>
     <section class="game-acceuil" id="game-acceuil">
       <div class="start" id="start">
         <div class="start-text">
@@ -58,7 +61,9 @@
             <p>Memorize the order, stack the ingredients, and become the Master Chef!</p>
             <div class="rules">
                 <span>⏱️ 10 seconds to memorize</span><br>
-                <span>🍔 Stack perfectly</span>
+                <span>🍔 Stack perfectly</span><br>
+                <span>⌛20 seconds to finish</span>
+
             </div>
         </div>
 
@@ -67,49 +72,86 @@
         </div>
 
         <div class="start-buttons">
-            <button class="btn-menu" onclick="startGame()">Start Game</button>
-            <button class="btn-menu btn-continue" onclick="continueGame()">Continue</button>
+            <button class="btn-menu" onclick="startGame(), initBarCount()">Start Game</button>
+            <button class="btn-menu btn-continue" onclick="continueGame(),initBarCount()">Continue</button>
         </div>
 
       </div>
       <section class="creation-burger" id= "creation-burger" style="display: none;">
         <div class="ingredients-grid" id="ingredients">
-          <div class="container" id="meat" onclick="addContainer('meat')">
-            <img src="images/ingredients/meat.png" alt="meat">
+          <div class="container" id="meat" >
+          <img src="images/ingredients/meat.png" alt="meat">
+          <div class="ing-details">
+            <div class="remove-ing" onclick="removeContainer('meat')"><i class="fa-solid fa-minus fa-xl" style="color: #ffffff;"></i></div>
             <div class="ing-title">meat</div>
+            <div class="add-ing" onclick="addContainer('meat')"><i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i></div>
           </div>
-          <div class="container" id="tomato" onclick="addContainer('tomato')">
-            <img src="images/ingredients/tomato.png" alt="tomato" >
+          
+        </div>
+        <div class="container" id="tomato">
+          <img src="images/ingredients/tomato.png" alt="tomato" >
+          <div class="ing-details">
+            <div class="remove-ing" onclick="removeContainer('tomato')"><i class="fa-solid fa-minus fa-xl" style="color: #ffffff;"></i></div>
             <div class="ing-title">tomato</div>
+            <div class="add-ing" onclick="addContainer('tomato')"><i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i></div>
           </div>
-          <div class="container" id="onion" onclick="addContainer('onion')">
-            <img src="images/ingredients/onion.png" alt="onion">
+        </div>
+        <div class="container" id="onion" >
+          <img src="images/ingredients/onion.png" alt="onion">
+          <div class="ing-details">
+            <div class="remove-ing" onclick="removeContainer('onion')"><i class="fa-solid fa-minus fa-xl" style="color: #ffffff;"></i></div>
             <div class="ing-title">onion</div>
+            <div class="add-ing" onclick="addContainer('onion')"><i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i></div>
           </div>
-          <div class="container" id="cheese" onclick="addContainer('cheese')">
-            <img src="images/ingredients/cheese-block.png" alt="cheese">
+        </div>
+        <div class="container" id="cheese" >
+          <img src="images/ingredients/cheese-block.png" alt="cheese">
+          <div class="ing-details">
+            <div class="remove-ing" onclick="removeContainer('cheese')"><i class="fa-solid fa-minus fa-xl" style="color: #ffffff;"></i></div>
             <div class="ing-title">cheese</div>
+            <div class="add-ing" onclick="addContainer('cheese')"><i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i></div>
           </div>
-          <div class="container" id="pickles" onclick="addContainer('pickles')">
-            <img src="images/ingredients/pickles.png" alt="pickles">
+        </div>
+        <div class="container" id="pickles" >
+          <img src="images/ingredients/pickles.png" alt="pickles">
+          <div class="ing-details">
+            <div class="remove-ing" onclick="removeContainer('pickles')"><i class="fa-solid fa-minus fa-xl" style="color: #ffffff;"></i></div>
             <div class="ing-title">pickles</div>
+            <div class="add-ing" onclick="addContainer('pickles')"><i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i></div>
           </div>
-          <div class="container" id="lettuce" onclick="addContainer('lettuce')">
-            <img src="images/ingredients/lettuce.png" alt="lettuce">
+        </div>
+        <div class="container" id="lettuce" >
+          <img src="images/ingredients/lettuce.png" alt="lettuce">
+          <div class="ing-details">
+            <div class="remove-ing" onclick="removeContainer('lettuce')"><i class="fa-solid fa-minus fa-xl" style="color: #ffffff;"></i></div>
             <div class="ing-title">lettuce</div>
+            <div class="add-ing" onclick="addContainer('lettuce')"><i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i></div>
           </div>
-          <div class="container" id="ketchup" onclick="addContainer('ketchup')">
-            <img src="images/ingredients/ketchup.png" alt="ketchup">
+        </div>
+        <div class="container" id="ketchup" >
+          <img src="images/ingredients/ketchup.png" alt="ketchup">
+          <div class="ing-details">
+            <div class="remove-ing" onclick="removeContainer('ketchup')"><i class="fa-solid fa-minus fa-xl" style="color: #ffffff;"></i></div>
             <div class="ing-title">ketchup</div>
+            <div class="add-ing" onclick="addContainer('ketchup')"><i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i></div>
           </div>
-          <div class="container" id="mayonnaise" onclick="addContainer('mayonnaise')">
-            <img src="images/ingredients/mayonnaise.png" alt="mayonnaise">
+        </div>
+        <div class="container" id="mayonnaise" >
+          <img src="images/ingredients/mayonnaise.png" alt="mayonnaise">
+          <div class="ing-details">
+            <div class="remove-ing" onclick="removeContainer('mayonnaise')" ><i class="fa-solid fa-minus fa-xl" style="color: #ffffff;"></i></div>
             <div class="ing-title">mayonnaise</div>
+            <div class="add-ing" onclick="addContainer('mayonnaise')"><i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i></div>
           </div>
-          <div class="container" id="mustard" onclick="addContainer('mustard')">
-            <img src="images/ingredients/mustard.png" alt="mustard">
+        </div>
+        <div class="container" id="mustard" >
+          <img src="images/ingredients/mustard.png" alt="mustard">
+          <div class="ing-details">
+            <div class="remove-ing" onclick="removeContainer('mustard')"><i class="fa-solid fa-minus fa-xl" style="color: #ffffff;"></i></div>
             <div class="ing-title">mustard</div>
+            <div class="add-ing" onclick="addContainer('mustard')"><i class="fa-solid fa-plus fa-xl" style="color: #ffffff;"></i></div>
           </div>
+        </div>
           
           <div class="buttons">
             <button class="btn btn-End" id="end-btn" onclick="End()">End</button>

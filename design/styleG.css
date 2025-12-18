@@ -685,6 +685,21 @@ footer {
   border-top: 1px solid #333;
 }
 
+#divCountdownBar{
+  width: 500px;
+  position: absolute;
+  left: 10%;
+  height: 10px;
+  border: 2px black solid;
+  background: linear-gradient(to right , red,yellow,green);
+  display: none;
+}
+
+#divTimeLeft{
+  float: right;
+  background: lightgray;
+  height: 10px;
+}
 @media (max-width: 760px) {
   
  
@@ -748,7 +763,20 @@ footer {
     cursor: pointer;
     transition:0.5s;
 }
-
+.ing-title{
+    display: none;
+  }
+  .ing-details{
+    justify-content: space-between;
+  }
+  .ingredients-grid{
+    gap: 50px;
+  }
+  #divCountdownBar{
+  width: 400px;
+  position: absolute;
+  left: 18px;
+  }
 }
 
 
